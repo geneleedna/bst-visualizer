@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>BST 教學系統 - 修正版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="control-panel">
+        <div class="top-row">
+            <input type="file" id="fileInput" accept=".txt">
+            <div class="play-controls">
+                <label><input type="checkbox" id="autoPlay" checked> 自動播放</label>
+                <button id="prevBtn" disabled>上一步</button>
+                <button id="nextBtn" disabled>下一步</button>
+                <button id="restartBtn" onclick="restartAnimation()" disabled>從頭開始</button>
+                <span>速度: <input type="range" id="speed" min="100" max="1000" value="700"></span>
+            </div>
+        </div>
+        <div class="action-row">
+            <div class="btns">
+                <button onclick="startTraversal('preorder')">Preorder</button>
+                <button onclick="startTraversal('inorder')">Inorder</button>
+                <button onclick="startTraversal('postorder')">Postorder</button>
+            </div>
+            <div class="edit-controls">
+                <input type="number" id="nodeValue" placeholder="數值">
+                <button onclick="handleAction('insert')" class="btn-insert">插入</button>
+                <button onclick="handleAction('delete')" class="btn-delete">刪除</button>
+            </div>
+        </div>
+        <div id="status">系統就緒。</div>
+    </div>
+    <div id="sequenceContainer">遍歷序列: </div>
+    <canvas id="treeCanvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
